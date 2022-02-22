@@ -1,0 +1,10 @@
+module: ietf-l3-bgp-topology
+  augment /nw:networks/nw:network/nw:network-types:
+    +--rw bgp-topology!
+  augment /nw:networks/nw:network/nw:node/l3t:l3-node-attributes:
+    +--rw local-as?     uint32
+    +--rw neighbours
+       +--rw neighbor?         inet:ip-address
+       +--rw description?      string
+       +--rw peer-as?          uint32
+       +--rw address-family*   identityref
