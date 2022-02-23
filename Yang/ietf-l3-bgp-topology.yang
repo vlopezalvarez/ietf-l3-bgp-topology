@@ -18,17 +18,20 @@ module ietf-l3-bgp-topology {
   organization
     "IETF OPSA (Operations and Management Area) Working Group";
   contact
-    "Editor:    Oscar Gonzalez de Dios
-                 <mailto:oscar.gonzalezdedios@telefonica.com>
+    "WG Web:  <https://datatracker.ietf.org/wg/opsawg/>
+    WG List:  <mailto:opsawg@ietf.org>
+    
+    Editor:   Oscar Gonzalez de Dios
+              <mailto:oscar.gonzalezdedios@telefonica.com>
     Editor:   Samier Barguil
-                 <mailto:samier.barguilgiraldo.ext@telefonica.com>
+              <mailto:samier.barguilgiraldo.ext@telefonica.com>
     Editor:   Victor Lopez
-                 <mailto:victor.lopez@nokia.com>";
+              <mailto:victor.lopez@nokia.com>";
   description
     "This module defines a model for Layer 3 BGP
      topologies.
 
-      Copyright (c) 2022 IETF Trust and the persons identified as
+    Copyright (c) 2022 IETF Trust and the persons identified as
      authors of the code.  All rights reserved.
 
      Redistribution and use in source and binary forms, with or
@@ -42,20 +45,20 @@ module ietf-l3-bgp-topology {
      (https://www.rfc-editor.org/info/rfcXXXX); see the RFC itself
      for full legal notices.";
   
-  revision 2022-02-17 {
+  revision 2022-03-07 {
     description
       "Initial version";
     reference
-      "RFC XXXX: A YANG Data Model for Border Gateway Protocol (BGP)";
+      "RFC XXXX: A YANG Data Model for Border Gateway Protocol (BGP) Topology";
   }
 
-typedef area-id-type {
-          type yang:dotted-quad;
-          description
-              "Area ID type.";
-      }
+  typedef area-id-type {
+    type yang:dotted-quad;
+    description
+      "Area ID type.";
+  }
 
-identity afi-safi-type {
+  identity afi-safi-type {
     description
       "Base identity type for AFI,SAFI tuples for BGP-4";
     reference
@@ -146,7 +149,7 @@ identity afi-safi-type {
   grouping bgp-topology-type {
     description "Identifies the topology type to be BGP.";
     container bgp-topology {
-      presence "indicates BGP topology";
+      presence "Indicates BGP topology";
       description
         "The presence of the container node indicates BGP
         topology";
@@ -158,7 +161,7 @@ identity afi-safi-type {
     leaf local-as {
         type uint32;
         description
-          "Node name";
+          "Local autonomous system (AS) number";
     }
     container neighbours {
       description
@@ -166,17 +169,17 @@ identity afi-safi-type {
       leaf neighbor {
         type inet:ip-address;
         description
-          "Node name";
+          "Neighbor IP address";
       }
       leaf description {
         type string;
         description
-          "Node name";
+          "Neighbor description";;
       }
       leaf peer-as {
         type uint32;
         description
-          "Node name";
+          "Peer autonomous system (AS) number";
       }
       leaf-list address-family {
         type identityref {
@@ -187,7 +190,6 @@ identity afi-safi-type {
       }
     }
   }
-
 
   augment "/nw:networks/nw:network/nw:network-types" {
     description
@@ -205,5 +207,4 @@ identity afi-safi-type {
         "BGP node-level attributes ";
     uses bgp-node-attributes;
   }
-  
 }
