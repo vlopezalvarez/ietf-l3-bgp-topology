@@ -1,7 +1,7 @@
 ---
 coding: utf-8
 
-title: A YANG Data Model for Border Gateway Protocol (BGP)
+title: A YANG Data Model for Border Gateway Protocol (BGP) Topology
 
 abbrev: BGP Topology YANG
 docname: draft-barguil-opsawg-bgp-topology-00
