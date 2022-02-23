@@ -144,6 +144,8 @@ module ietf-l3-bgp-topology {
     base afi-safi-type;
     description
       "BGP MPLS Based Ethernet VPN (AFI,SAFI = 25,70)";
+    reference
+      "RFC 7432: BGP MPLS-Based Ethernet VPN";      
   }
 
   grouping bgp-topology-type {

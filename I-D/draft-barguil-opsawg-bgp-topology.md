@@ -81,7 +81,7 @@ The meaning of the symbols in these diagrams is defined in {{!RFC8340}}.
 
 | Prefix | Yang Module            | Reference    |
 | ------ | ---------------------- | ------------ |
-| bgpnt  | ietf-l3-bgp-topology      | RFCXXX       |
+| bgpnt  | ietf-l3-bgp-topology   | RFCXXX       |
 | yang   | ietf-yang-types        | {{!RFC6991}} |
 {: #tab-prefixes title="Prefixes and corresponding YANG modules"}
 
